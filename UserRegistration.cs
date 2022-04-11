@@ -9,6 +9,12 @@ namespace UserRegistrationProblem
 {
     internal class UserRegistration
     {
+        public static bool PhoneNumberValidation(String Pno)
+        {
+            String PPattern = @"^\+?\d{0,2}\-?\d{4,5}\-?\d{5,6}"; //Define Phone Number Pattern
+            Regex Pregex = new Regex(PPattern); //create object of the Regex class (its Regesx predefine class)
+            return Pregex.IsMatch(Pno);
+        }
         public static bool EmailValidation(String email)
         {
             String Epattern = @"^[a-z]+([-+*.]?[0-9a-z])*@[a-z0-9]+\.(\.?[a-z]{2,}){1,2}$"; //Define Email Pattern
@@ -61,14 +67,22 @@ namespace UserRegistrationProblem
             else
             {
                 Console.WriteLine("Invalid Email");  //print Email Invalid
+            }            
+            Console.WriteLine("\nEnter Phone Number :- ");  // Take user input
+            string Pno = Console.ReadLine();      //Store input string veriable
+            if (PhoneNumberValidation(Pno))
+            {
+                Console.WriteLine("Valid Phone Number");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Phone Number");
+
+
+
             }
             Console.ReadLine();
-
-
-
-
         }
 
     }
-
 }
