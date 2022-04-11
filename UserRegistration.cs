@@ -9,13 +9,7 @@ namespace UserRegistrationProblem
 {
     internal class UserRegistration
     {
-        public static bool passwordValidation(String password)
-        {
-            String patternPassword = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
-            Regex Passregex = new Regex(patternPassword);
-            return Passregex.IsMatch(password);
-        }
-        public static bool PhoneNumberValidation(String Pno)
+         public static bool PhoneNumberValidation(String Pno)
         {
             String PPattern = @"^\+?\d{0,2}\-?\d{4,5}\-?\d{5,6}"; //Define Phone Number Pattern
             Regex Pregex = new Regex(PPattern); //create object of the Regex class (its Regesx predefine class)
@@ -73,30 +67,18 @@ namespace UserRegistrationProblem
             else
             {
                 Console.WriteLine("Invalid Email");  //print Email Invalid
-            }            
-            Console.WriteLine("\nEnter Phone Number :- ");  // Take user input
-            string Pno = Console.ReadLine();      //Store input string veriable
-            if (PhoneNumberValidation(Pno))
-            {
-                Console.WriteLine("Valid Phone Number");
             }
-            else
-            {
-                Console.WriteLine("Invalid Phone Number");
-            }
-            Console.WriteLine("Enter the Password:- ");
-            String password = Console.ReadLine();
-
-            if (passwordValidation(password))
-            {
-                Console.WriteLine("Valid Password");
-            }
-            else
-            {
-                Console.WriteLine("Invalid Password");
-            }
+          
+     
+            
+            
             Console.ReadLine();
+
+
+
+
         }
 
     }
+
 }
