@@ -14,7 +14,7 @@ namespace UserRegistrationProblem
         public static string lastNamePattern = "^[A-Z]{1}[a-z]{1,}";
         public static string emailPattern = "^[a-zA-z0-9]+([.]*[a-zA-Z0-9])+[@]([a-z]{3,})+([.][a-z]{2,3})$";
         public static string mobilePattern = "^([9][1])[ ]*[6-9]{1}[0-9]{9}$";
-        public static string passwordPatternR1 = "^(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z]).{8,}";
+        public static string passwordPatternR1 = "^(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[@#$&*,!?]).{8,}";
         public static string ValidatePattern(string userInput, string pattern)
         {
             if (Regex.IsMatch(userInput, pattern))
