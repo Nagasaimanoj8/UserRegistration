@@ -19,7 +19,7 @@ namespace UserRegistrationProblem
             while (Continue)
             {
                 Console.WriteLine("Choose Option");
-                Console.WriteLine("1 = First Name\n2 = Last Name\n0=Exit");
+                Console.WriteLine("1:First Name\n2: Last Name\n3:Enter Email-Id\n0=Exit");
                 int choice = int.Parse(Console.ReadLine());
                 switch (choice)
                 {
@@ -36,9 +36,16 @@ namespace UserRegistrationProblem
                         string lastName = Console.ReadLine();
                         Console.WriteLine(UserRegister.ValidateLastName(lastName));
                         break;
+                    case 3:
+                        Console.WriteLine("Enter Email ID");
+                        string email = Console.ReadLine();
+                        Console.WriteLine(UserRegister.ValidateEmailID(email));
+                        break;
                     default:
                         Console.WriteLine("Enter Correct Option!");
                         break;
+                    
+
                 }
             }
         }
