@@ -19,7 +19,7 @@ namespace UserRegistrationProblem
             while (Continue)
             {
                 Console.WriteLine("Choose Option");
-                Console.WriteLine("1:First Name\n2: Last Name\n3:Enter Email-Id\n4:Enter Valid PhoneNumber\n0=Exit");
+                Console.WriteLine("1:First Name\n2: Last Name\n3:Enter Email-Id\n4:Enter Valid PhoneNumber\n5:Enter Password\n0=Exit");
                 int choice = int.Parse(Console.ReadLine());
                 switch (choice)
                 {
@@ -44,7 +44,12 @@ namespace UserRegistrationProblem
                     case 4:
                         Console.WriteLine("Enter Mobile Number");
                         string mobileNumber = Console.ReadLine();
-                        Console.WriteLine(UserRegister.ValidateMonileNumber(mobileNumber));
+                        Console.WriteLine(UserRegister.ValidateMobileNumber(mobileNumber));
+                        break;
+                    case 5:
+                        Console.WriteLine("Enter Password");
+                        string password=Console.ReadLine();
+                        Console.WriteLine(UserRegister.ValidatePassword(password));
                         break;
                     default:
                         Console.WriteLine("Enter Correct Option!");
