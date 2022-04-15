@@ -22,18 +22,7 @@ namespace UserRegistration
                 //Assert
                 Assert.AreEqual(expected, actual);
             }
-            [TestMethod]
-            public void LastName()
-            {
-                string msg = "Saiias";
-                string expected = "Valid";
-                //Arrange
-                UserRegister p = new UserRegister(msg);
-                //Act
-                string actual = p.LastName("Valid");
-                //Assert
-                Assert.AreEqual(expected, actual);
-            }
+           
 
 
 
