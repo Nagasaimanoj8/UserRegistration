@@ -113,7 +113,7 @@ namespace UserRegistrationProblem
         }
         public string Password(string name5)
         {
-            string Password = "^((?=.*[A-Z])(?=.*[0-9])(?=.{8,}))";
+            string Password = "^.*(?=.{8,})(?=.*)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*";
             Regex regex = new Regex(Password);
 
             try
