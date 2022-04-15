@@ -37,6 +37,20 @@ namespace UserRegistration
                 //Assert
                 Assert.AreEqual(expected, actual);
             }
+           [TestMethod]
+            public void Email()
+            {
+                string msg = " ";
+                string expected = "Invalid";
+
+                UserRegister p = new UserRegister(msg);
+
+                string actual = p.Email("Invalid");
+
+                Assert.AreEqual(expected, actual);
+            }
+
+
 
 
 

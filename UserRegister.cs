@@ -61,8 +61,30 @@ namespace UserRegistrationProblem
                 throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
             }
         }
+        public string Email(string name3)
+        {
+            string Email = "^[A-Z0-9a-z]{1,}([.#$^][A-Za-z0-9]+)*[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$";
+            Regex regex = new Regex(Email);
+
+            try
+            {
 
 
-
+                if (regex.IsMatch(name3))
+                {
+                    Console.WriteLine(name3 + " is valid name");
+                    return "Valid";
+                }
+                else
+                {
+                    Console.WriteLine(name3 + " is invalid.");
+                    return "Invalid";
+                }
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
+            }
+        }
     }
 }
