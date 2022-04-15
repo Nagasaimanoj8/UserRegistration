@@ -24,6 +24,16 @@ namespace UserRegistrationProblem
             Console.Write("\n Enter Last Name : ");
             string name2 = Console.ReadLine();
 
+            Console.WriteLine("\n Write your Email ex : example123@gmail.com your can write yahoo and any other mail ID.");
+            Console.Write("\n Enter Email : ");
+            string name3 = Console.ReadLine();
+            p.Email(name3);
+
+            Console.WriteLine("\n Write your Mobile Number ex : +91 7891235452 .");
+            Console.Write("\n Enter Mobile Number : ");
+            string name4 = Console.ReadLine();
+            p.MobileNumber(name4);
+
         }
     }
 }

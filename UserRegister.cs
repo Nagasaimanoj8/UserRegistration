@@ -86,5 +86,30 @@ namespace UserRegistrationProblem
                 throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
             }
         }
+        public string MobileNumber(string name4)
+        {
+            string MobileNumber = "(0|91)?[ ][6-9][0-9]{9}";
+            Regex regex = new Regex(MobileNumber);
+
+            try
+            {
+
+                if (regex.IsMatch(name4))
+                {
+                    Console.WriteLine(name4 + " is valid name");
+                    return "Valid";
+                }
+                else
+                {
+                    Console.WriteLine(name4 + " is invalid.");
+                    return "Invalid";
+                }
+
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
+            }
+        }
     }
 }

@@ -42,14 +42,25 @@ namespace UserRegistration
             {
                 string msg = " ";
                 string expected = "Invalid";
-
+                //Arrange
                 UserRegister p = new UserRegister(msg);
-
+                //Act
                 string actual = p.Email("Invalid");
-
+                //Assert
                 Assert.AreEqual(expected, actual);
             }
-
+            [TestMethod]
+            public void MobileNumber()
+            {
+                string msg = " ";
+                string expected = "Invalid";
+                //Arrange
+                UserRegister p = new UserRegister(msg);
+                //Act
+                string actual = p.MobileNumber("Invalid");
+                //Assert
+                Assert.AreEqual(expected, actual);
+            }
 
 
 
