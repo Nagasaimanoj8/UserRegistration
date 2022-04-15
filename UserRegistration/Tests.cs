@@ -13,67 +13,32 @@ namespace UserRegistration
             [TestMethod]
             public void FirstName()
             {
-                string msg = " ";
+                string msg = "Manoj ";
                 string expected = "Valid";
-
+                //Arrange
                 UserRegister p = new UserRegister(msg);
-
+                //Act
                 string actual = p.FirstName("Valid");
-
+                //Assert
                 Assert.AreEqual(expected, actual);
             }
-
             [TestMethod]
             public void LastName()
             {
-                string msg = " ";
+                string msg = "Saiias";
                 string expected = "Valid";
-
+                //Arrange
                 UserRegister p = new UserRegister(msg);
-
+                //Act
                 string actual = p.LastName("Valid");
-
+                //Assert
                 Assert.AreEqual(expected, actual);
             }
 
-            [TestMethod]
-            public void Email()
-            {
-                string msg = " ";
-                string expected = "Invalid";
 
-                UserRegister p = new UserRegister(msg);
 
-                string actual = p.Email("Invalid");
 
-                Assert.AreEqual(expected, actual);
-            }
-
-            [TestMethod]
-            public void MobileNumber()
-            {
-                string msg = " ";
-                string expected = "Invalid";
-
-                    UserRegister p = new UserRegister(msg);
-
-                string actual = p.MobileNumber("Invalid");
-
-                Assert.AreEqual(expected, actual);
-            }
-
-            [TestMethod]
-            public void Password()
-            {
-                string msg = " ";
-                string expected = "Invalid";
-
-                UserRegister p = new UserRegister(msg);
-
-                string actual = p.Password("Invalid");
-
-                Assert.AreEqual(expected, actual);
-            }
         }
+
     }
 }
