@@ -34,6 +34,11 @@ namespace UserRegistrationProblem
             string name4 = Console.ReadLine();
             p.MobileNumber(name4);
 
+            Console.WriteLine("\n Write your Password ex : Aa9@ length atleast 8 .");
+            Console.Write("\n Enter Password : ");
+            string name5 = Console.ReadLine();
+            p.Password(name5);
+
         }
     }
 }

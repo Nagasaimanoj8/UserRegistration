@@ -111,5 +111,29 @@ namespace UserRegistrationProblem
                 throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
             }
         }
+        public string Password(string name5)
+        {
+            string Password = "^.*(?=.{8,})(?=.*)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$";
+            Regex regex = new Regex(Password);
+
+            try
+            {
+
+                if (regex.IsMatch(name5))
+                {
+                    Console.WriteLine(name5 + " is valid name");
+                    return "Valid";
+                }
+                else
+                {
+                    Console.WriteLine(name5 + " is invalid.");
+                    return "Invalid";
+                }
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
+            }
+        }
     }
 }

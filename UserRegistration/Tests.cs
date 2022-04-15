@@ -61,7 +61,18 @@ namespace UserRegistration
                 //Assert
                 Assert.AreEqual(expected, actual);
             }
-
+            [TestMethod]
+            public void Password()
+            {
+                string msg = " ";
+                string expected = "Invalid";
+                //Arrange
+                UserRegister p = new UserRegister(msg);
+                //Act
+                string actual = p.Password("Invalid");
+                //Assert
+                Assert.AreEqual(expected, actual);
+            }
 
 
 
