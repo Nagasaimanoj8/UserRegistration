@@ -14,12 +14,14 @@ namespace UserRegistrationProblem
 
             public enum ExceptionType
             {
-                NUll_Type_Exception,
-                Empty_Type_Exception,
-                Class_Not_Found,
-                Argument_Null_Exception
+                WRONG_FIRSTNAME, 
+                WRONG_LASTNAME, 
+                WRONG_EMAIL, 
+                WRONG_MOBILENUMBER,
+                WRONG_PASSWORD
             }
-            public CustomException(ExceptionType type, string message) : base(message)
+            public readonly ExceptionType type;
+            public UserRegistrationCustomException(ExceptionType type, string message) : base(message)
             {
                 this.type = type;
             }
