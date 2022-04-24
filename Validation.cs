@@ -8,71 +8,23 @@ using static UserRegistrationProblem.CustomeException;
 
 namespace UserRegistrationProblem
 {
+    //UC 13 : Refactor to use Lambda Exp to validate user details
     public class Validation
-    {
-
-        public static string FIRSTNAME_REGX = "^[A-Z]{1}[A-Za-z]{2,}$";
-        public static string LASTNAME_REGX = "^[A-Z]{1}[A-Za-z]{2,}$";
-        public static string EMAIL_REGX = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-        public static string MOBILENUMBER_REGX = "^[0-9]{2}[ ][0-9]{10}$";
-        public static string PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[^0-9a-zA-Z])(?!.*[^0-9a-zA-Z].*[^0-9a-zA-Z]).{8,}$";
-
-        public string isValidEmailID(string emailId)
         {
-            try
+            //Creating a Lambda Expression to validate the details entered by the user by matching the entry with the corresponding Regular Expression
+            //Func validate declared which returns true if valid entry otherwise false.
+            public static Func<string, string, bool> validate = (userEntry, pattern) => Regex.IsMatch(userEntry, pattern);
+            //creating a method to validate the entered user data with the corresponding Regular Expression
+            //if matches then returns true
+            //if does not matches then throw custom exception 
+            public static bool IsValid(string userValue, string pattern)
             {
-                if (Regex.IsMatch(emailId, EMAIL_REGX))
-                    return "Correct Entry";
+                if (validate(userValue, pattern))
+                    return true;
                 else
-                    throw new Exception();
-            }
-            catch
-            {
-                throw new CustomException(CustomException.ExceptionType.WRONG_EMAIL, "Invalid Entry");
-            }
-        }
-        public string isValidName(string Name)
-        {
-            try
-            {
-                if (Regex.IsMatch(Name, FIRSTNAME_REGX))
-                    return "Correct Entry";
-                else
-                    throw new Exception();
-            }
-            catch
-            {
-                throw new CustomException(CustomException.ExceptionType.WRONG_FIRSTNAME, "Invalid Entry");
-            }
-        }
-        public string isValidMobileNumber(string mobileNumber)
-        {
-            try
-            {
-                if (Regex.IsMatch(mobileNumber, MOBILENUMBER_REGX))
-                    return "Correct Entry";
-                else
-                    throw new Exception();
-            }
-            catch
-            {
-                throw new CustomException(CustomException.ExceptionType.WRONG_MOBILENUMBER, "Invalid Entry");
-            }
-
-        }
-        public string isValidPassword(string password)
-        {
-            try
-            {
-                if (Regex.IsMatch(password, PASSWORD))
-                    return "Correct Entry";
-                else
-                    throw new Exception();
-            }
-            catch
-            {
-                throw new CustomException(CustomException.ExceptionType.WRONG_PASSWORD, "Invalid Entry");
+                {
+                    throw new CustomException(CustomException.ExceptionType.INVALID_DETAILS, "Exception: Invalid Details Entered");
+                }
             }
         }
     }
-}

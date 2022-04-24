@@ -9,19 +9,13 @@ namespace UserRegistrationProblem
     public class CustomeException
     {
         public class CustomException : Exception
-        {
-            public ExceptionType type;
-
+        {           
             public enum ExceptionType
             {
-                WRONG_FIRSTNAME, 
-                WRONG_LASTNAME, 
-                WRONG_EMAIL, 
-                WRONG_MOBILENUMBER,
-                WRONG_PASSWORD
+                INVALID_DETAILS
             }
             public readonly ExceptionType type;
-            public UserRegistrationCustomException(ExceptionType type, string message) : base(message)
+            public CustomException(ExceptionType type, string message) : base(message)
             {
                 this.type = type;
             }
