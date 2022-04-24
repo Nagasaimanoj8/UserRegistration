@@ -11,129 +11,83 @@ namespace UserRegistrationProblem
     public class UserRegister
     {
 
-        // Static Variable
-        private string msg;
-
-        public UserRegister(string msg)
+        public Boolean FirstNameValidation(string firstName)
         {
-            this.msg = msg;
+            Regex regularExpression = new Regex("^[A-Z][a-z]{2,}$");
+            if (regularExpression.IsMatch(firstName))
+                return true;
+            else
+                return false;
+        }
+        public Boolean LastNameValidation(string lastName)
+        {
+
+            Regex regularExpression = new Regex("^[A-Z][a-z]{2,}$");
+            if (regularExpression.IsMatch(lastName))
+                return true;
+            else
+                return false;
+        }
+        public Boolean EmailidValidation(string email)
+        {
+            Regex regularExpression = new Regex("^[0-9A-Za-z]+([+-_.][a-zA-Z]+)*[@][0-9A-Za-z]+[.][0-9A-Za-z]{2,3}$");
+            if (regularExpression.IsMatch(email))
+                return true;
+            else
+                return false;
+        }
+        public Boolean MobileNumberValidation(string mobileNo)
+        {
+            Regex regularExpression = new Regex("^[0-9]{2,3}\\s[1-9]{10}$");
+            if (regularExpression.IsMatch(mobileNo))
+                return true;
+            else
+                return false;
+        }
+        public Boolean PasswordValidationRule1(string password1)
+        {
+            Regex regularExpression = new Regex(@"(^[A-Za-z0-9]{8,}$)");    //UC6 Password Rule 1
+            if (regularExpression.IsMatch(password1))
+                return true;
+            else
+                return false;
+        }
+        public Boolean PasswordValidationRule2(string password2)
+        {
+            Regex regularExpression = new Regex(@"(^(?=.*[A-Z])[A-Za-z0-9@#-+]{8,}$)"); //UC6 Password Rule 2
+            if (regularExpression.IsMatch(password2))
+                return true;
+            else
+                return false;
+        }
+        public Boolean PasswordValidationRule3(string password3)
+        {
+            Regex regularExpression = new Regex(@"(^(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9@#-+]{8,}$)"); //UC7 Password Rule 3
+            if (regularExpression.IsMatch(password3))
+                return true;
+            else
+                return false;
+        }
+        public Boolean PasswordValidationRule4(string password4)
+        {
+            Regex regularExpression = new Regex(@"(^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#+-\._])[A-Za-z0-9@#-+\._]{8,}$)"); //UC8 Password Rule 4
+            if (regularExpression.IsMatch(password4))
+                return true;
+            else
+                return false;
+        }
+        public static string Email_Regex = "^[a-zA-Z0-9]+([.+_-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+[.][a-zA-Z]+([.][a-zA-Z]{2})?$";
+        public bool ValidateEmailSet(string email)
+        {
+            return Regex.IsMatch(email, Email_Regex);
         }
 
-        public string FirstName(string name1)
+        public string MoodAnalyser(string message)
         {
-            string FirstName = "^[A-Za-z]\\w{1,10}$$";
-            Regex regex = new Regex(FirstName);
-            try
-            {
-                if (regex.IsMatch(name1))
-                {
-                    Console.WriteLine(name1 + " is valid name");
-                    return "Valid";
-                }
-                else
-                {
-                    Console.WriteLine(name1 + " is invalid. Please Enter First name start with capital letter and maximum 10 charactors");
-                    return "Invalid";
-                }
-            }
-            catch (ArgumentNullException ex) { throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid"); }
-        }
-        public string LastName(string name2)
-        {
-            string LastName = "^[A-Za-z]\\w{1,10}$$";
-            Regex regex = new Regex(LastName);
-
-            try
-            {
-                if (regex.IsMatch(name2))
-                {
-                    Console.WriteLine(name2 + " is valid name");
-                    return "Valid";
-                }
-                else
-                {
-                    Console.WriteLine(name2 + " is invalid. Please Enter First name start with capital letter and maximum 10 charactors");
-                    return "Invalid";
-                }
-            }
-            catch (ArgumentNullException ex)
-            {
-                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
-            }
-        }
-        public string Email(string name3)
-        {
-            string Email = "^[A-Z0-9a-z]{1,}([.#$^][A-Za-z0-9]+)*[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$";
-            Regex regex = new Regex(Email);
-
-            try
-            {
-
-
-                if (regex.IsMatch(name3))
-                {
-                    Console.WriteLine(name3 + " is valid name");
-                    return "Valid";
-                }
-                else
-                {
-                    Console.WriteLine(name3 + " is invalid.");
-                    return "Invalid";
-                }
-            }
-            catch (ArgumentNullException ex)
-            {
-                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
-            }
-        }
-        public string MobileNumber(string name4)
-        {
-            string MobileNumber = "(0|91)?[ ][6-9][0-9]{9}";
-            Regex regex = new Regex(MobileNumber);
-
-            try
-            {
-
-                if (regex.IsMatch(name4))
-                {
-                    Console.WriteLine(name4 + " is valid name");
-                    return "Valid";
-                }
-                else
-                {
-                    Console.WriteLine(name4 + " is invalid.");
-                    return "Invalid";
-                }
-
-            }
-            catch (ArgumentNullException ex)
-            {
-                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
-            }
-        }
-        public string Password(string name5)
-        {
-            string Password = "^.*(?=.{8,})(?=.*)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*";
-            Regex regex = new Regex(Password);
-
-            try
-            {
-
-                if (regex.IsMatch(name5))
-                {
-                    Console.WriteLine(name5 + " is valid name");
-                    return "Valid";
-                }
-                else
-                {
-                    Console.WriteLine(name5 + " is invalid.");
-                    return "Invalid";
-                }
-            }
-            catch (ArgumentNullException ex)
-            {
-                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
-            }
+            if (message.Contains("HAPPY"))
+                return "HAPPY";
+            else
+                return "SAD";
         }
     }
 }
