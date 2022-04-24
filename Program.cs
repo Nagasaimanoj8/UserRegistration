@@ -23,14 +23,6 @@ namespace UserRegistrationProblem
             Console.WriteLine("\n Write your name using 1st character should be Capital ");
             Console.Write("\n Enter Last Name : ");
             string name2 = Console.ReadLine();
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> UC2_EnterValidLastName
-=======
-
->>>>>>> UC2_EnterValidLastName
         }
     }
 }
